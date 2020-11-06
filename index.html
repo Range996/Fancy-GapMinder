@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSE494 - Fall 2020 - Homework #4</title>
+    <script src='https://d3js.org/d3.v5.min.js'></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <style>
+        div {
+            margin: 10px;
+        }
+
+        svg {
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 1080px;
+            height: 720px;
+            margin: auto;
+            display: block;
+        }
+
+        h1 {
+            margin: 20px;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .row {
+            margin-top: 30px;
+        }
+
+        .container {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='row'>
+        <div class='col-12'>
+            <h1>1800-2040(Year) Fancy GapMinder</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="container">
+                X Attribute:
+                <select id="x-attribute" onchange="updateAxis();">
+                    <option value="gdpPerCapital">GDP Per Capital</option>
+                    <option value="lifeExpectancy">Life Expectancy</option>
+                    <option value="childMortality">Child Mortality</option>
+                    <option value="populationTotal">Total Population</option>
+                </select>
+
+                &nbsp Y Attribute:&nbsp;
+                <select id="y-attribute" onchange="updateAxis();">
+                    <option value="populationTotal">Total Population</option>
+                    <option value="childMortality">Child Mortality</option>
+                    <option value="lifeExpectancy">Life Expectancy</option>
+                    <option value="gdpPerCapital">GDP Per Capital</option>
+                </select>
+
+                &nbsp Region:&nbsp;
+                <select id="region" onchange="updateRegion();">
+                    <option value="southAsia">South Asia</option>
+                    <option value="europe">Europe & Central Asia</option>
+                    <option value="middleEast">Middle East & North Africa</option>
+                    <option value="africa">Sub-Saharan Africa</option>
+                    <option value="latinAmerica">Latin America & Caribbean</option>
+                    <option value="EastAsia">East Asia & Pacific</option>
+                    <option value="northAmerica">North America</option>
+                </select>
+
+                &nbsp Year:&nbsp;
+                <input type='number' id='year-input' value='1800' min='1800' max='2040'onchange='updateGapMinder();''>
+
+                <input type='button' id='toggle-button' value='Play' onclick='toggleAnimation();'>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <svg id="svg"></svg>
+        </div>
+    </div>
+</body>
+<script src='scripts/homework4.js'></script>
+
+</html>
